@@ -17,17 +17,21 @@
     </body>
     <script>
         mySpec = {
-            "width": 800,
-            "height": 600,
-            "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-            "description": "Year Acquired VS Year Constructed",
-            "data": {"url": "https://uiuc-ischool-dataviz.github.io/spring2019online/week02/building_inventory.csv"},
-            "mark": "point",
-            "encoding": {
-                "x": {"field": "Year Constructed", "type": "temporal"},
-                "y": {"field": "Year Acquired", "type": "temporal"},
-                          }
-                };
+    "width": 800,
+    "height": 600,
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "description": "Year Acquired VS Year Constructed",
+    "data": {"url": "https://uiuc-ischool-dataviz.github.io/spring2019online/week02/building_inventory.csv"},
+    "mark": "point",
+    "transform": [
+        {"filter": {"timeUnit": "year", "field": "Year Constructed", "range": [1750, 2020]}},
+        {"filter": {"timeUnit": "year", "field": "Year Acquired", "range": [1750, 2020]}}
+    ],
+    "encoding": {
+        "x": {"field": "Year Constructed", "type": "temporal"},
+        "y": {"field": "Year Acquired", "type": "temporal"}
+        }
+};
         vegaEmbed('#myviz', mySpec);
     </script>
 </html>
