@@ -10,7 +10,7 @@
             IS445 Data Visualization - Phase 2.
         </p>
         <p>
-            Relations between total injuries and hour.
+            The factor of crashes.
         </p>
         <div id="myviz">
         </div>
@@ -24,13 +24,14 @@
   "height": 200,
   "encoding": {
     "x": {
-      "field": "crash_hour",
-      "type": "ordinal"
+      "field": "prim_contributory_cause",
+      "type": "nominal",
+      "title": "Primary factors"
       },
-    "y": {"aggregate": "sum",
+    "y": {"aggregate": "count",
           "type": "quantitative",
-          "field": "injuries_total",
-          "title": "Number of Death"}
+          "field": "crash_record_id",
+          "title": "Number of Crash"}
     }
   };
         vegaEmbed('#myviz', mySpec);
